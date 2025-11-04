@@ -1,0 +1,76 @@
+# Archivos de configuración de usuario
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Archivos generados por el compilador
+bin/
+obj/
+
+# Archivos de configuración de Visual Studio
+.vscode/
+*.code-workspace
+
+# Archivos de paquetes y dependencias
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Archivos de Entity Framework
+Migrations/
+
+# Archivos de bases de datos locales
+*.mdf
+*.ldf
+*.ndf
+
+# Archivos de configuración de publicación
+.publishsettings
+
+# Archivos temporales y de caché
+*.log
+*.tlog
+*.idb
+*.pdb
+*.cache
+*.ilk
+*.obj
+*.pch
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tmp
+*.tmp_proj
+*.vspscc
+*.vssscc
+
+# Archivos de configuración de IIS
+_IISExpress/
+
+# Archivos de configuración de Rider
+.idea/
+*.sln.iml
+
+# Archivos de configuración de sistema operativo
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Archivos de configuración de herramientas de análisis
+*.DotSettings.user
+
+# Archivos de configuración de estilos
+*.css.map
+*.min.css
+*.min.js
+
+# Archivos de configuración de seguridad
+secrets.json
