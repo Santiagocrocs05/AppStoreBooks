@@ -4,7 +4,7 @@
 *.user
 *.userosscache
 *.sln.docstates
-
+*.dll
 # Archivos generados por el compilador
 bin/
 obj/
