@@ -74,3 +74,8 @@ $RECYCLE.BIN/
 
 # Archivos de configuración de seguridad
 secrets.json
+
+# Excluir archivos generados por el compilador y el entorno de desarrollo
+src/AppStore/bin/
+src/AppStore/obj/
+src/AppStore/Properties/launchSettings.json
