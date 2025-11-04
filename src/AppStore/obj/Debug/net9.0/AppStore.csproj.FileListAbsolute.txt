@@ -94,3 +94,4 @@ C:\Users\santiago.coronado\Desktop\c#\ASPNET\src\AppStore\obj\Debug\net9.0\refin
 C:\Users\santiago.coronado\Desktop\c#\ASPNET\src\AppStore\obj\Debug\net9.0\AppStore.pdb
 C:\Users\santiago.coronado\Desktop\c#\ASPNET\src\AppStore\obj\Debug\net9.0\AppStore.genruntimeconfig.cache
 C:\Users\santiago.coronado\Desktop\c#\ASPNET\src\AppStore\obj\Debug\net9.0\ref\AppStore.dll
+C:\Users\santiago.coronado\Desktop\c#\ASPNET\src\AppStore\obj\Debug\net9.0\AppStore.sourcelink.json
