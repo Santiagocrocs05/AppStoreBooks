@@ -78,3 +78,5 @@ secrets.json
 src/AppStore/bin/
 src/AppStore/obj/
 src/AppStore/Properties/launchSettings.json
+
+.fake

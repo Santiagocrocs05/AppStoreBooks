@@ -30,9 +30,9 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles(); // Asegúrate de que esta línea esté presente
 app.UseRouting();
-
-app.UseAuthorization();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();
