@@ -20,8 +20,7 @@ project.lock.json
 project.fragment.lock.json
 artifacts/
 
-# Archivos de Entity Framework
-Migrations/
+
 
 # Archivos de bases de datos locales
 *.mdf
