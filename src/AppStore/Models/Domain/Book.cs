@@ -19,5 +19,8 @@ namespace AppStore.Models.Domain
 
         [NotMapped]
         public List<int>? categories { get; set; }
+
+        [NotMapped]
+        public string CategoriesName { get; set; }
     }
 }

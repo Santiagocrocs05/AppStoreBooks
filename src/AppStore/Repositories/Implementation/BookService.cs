@@ -77,7 +77,46 @@ public class BookService : IBookService
 
     public BookListvm Listvm(string term = "", bool paging = false, int currentpage = 0)
     {
-        throw new NotImplementedException();
+        var data = new BookListvm();
+
+        var list = _databasecontext.Books.ToList();
+
+        if (string.IsNullOrEmpty(term))
+        {
+            term = term.ToLower();
+            list = list.Where(a => a.Title.ToLower().StartsWith(term)).ToList();
+        }
+
+        if (paging)
+        {
+            int pagesize = 5;
+            int count = list.Count;
+            int totalPages = (int)Math.Ceiling(count / (double)pagesize);
+            list = list.Skip((currentpage - 1) * pagesize).Take(pagesize).ToList();
+            data.Pagesize = pagesize;
+            data.currentpage = currentpage;
+            data.TotalPages = totalPages;
+        }
+
+        foreach (var book in list)
+        {
+            var categories = (
+
+                from category in _databasecontext.Categories
+                join bc in _databasecontext.BookCategories
+                on category.Id equals bc.CategoryId
+                where bc.BookId == book.Id
+                select category.Name
+            ).ToList();
+
+            var categoryNames = string.Join(",", categories);
+
+            book.CategoriesName = categoryNames;
+        }
+
+        data.BookList = list.AsQueryable();
+
+        return data;
     }
 
     public bool Update(Book book)
