@@ -28,34 +28,38 @@ namespace AppStore.Models.Domain
 
             if (!context.Categories.Any())
             {
-                context.Categories.AddRange(
+                await context.Categories.AddRangeAsync(
                                     new Category { Name = "Drama" },
                                     new Category { Name = "Comedy" },
                                     new Category { Name = "Action" },
                                     new Category { Name = "Horror" }
                 );
+
+                await context.SaveChangesAsync();
             }
 
             if (!context.Books.Any())
             {
-                context.Books.AddRange(
+                await context.Books.AddRangeAsync(
                     new Book { Title = "100 años de soledad", Author = "Gabriel García Márquez", CreateDate = DateTime.Now, Imagen = "https://example.com/100anos.jpg" },
                     new Book { Title = "1984", Author = "George Orwell", CreateDate = DateTime.Now, Imagen = "https://example.com/1984.jpg" },
                     new Book { Title = "Harry Potter", Author = "J.K. Rowling", CreateDate = DateTime.Now, Imagen = "https://example.com/harrypotter.jpg" }
 
                 );
+
+                await context.SaveChangesAsync();
             }
 
             if (!context.BookCategories.Any())
             {
-                context.BookCategories.AddRange(
-                    new BookCategory { BookId = 1, CategoryId = 1 },
-                    new BookCategory { BookId = 2, CategoryId = 3 },
-                    new BookCategory { BookId = 3, CategoryId = 2 }
-                );
+                await context.BookCategories.AddRangeAsync(
+                     new BookCategory { BookId = 1, CategoryId = 1 },
+                     new BookCategory { BookId = 2, CategoryId = 3 },
+                     new BookCategory { BookId = 3, CategoryId = 2 }
+                 );
             }
 
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
     }
 }
