@@ -19,7 +19,7 @@ public class BookService : IBookService
         {
             _databasecontext.Books.Add(book);
             _databasecontext.SaveChanges();
-            foreach (var categoryId in book.categories!)
+            foreach (var categoryId in book.Categories!)
             {
                 var BookCategory = new BookCategory
                 {
@@ -128,7 +128,7 @@ public class BookService : IBookService
             {
                 _databasecontext.BookCategories.Remove(categorie);
             }
-            foreach (var categoryid in book.categories!)
+            foreach (var categoryid in book.Categories!)
             {
                 var librocategory = new BookCategory { CategoryId = categoryid, BookId = book.Id };
                 _databasecontext.BookCategories.Add(librocategory);

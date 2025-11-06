@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace AppStore.Models.Domain
 {
@@ -14,13 +15,20 @@ namespace AppStore.Models.Domain
         [Required]
         public string? Author { get; set; }
 
-        public virtual ICollection<Category> categoryRelationList { get; set; }
-        public virtual ICollection<BookCategory> BookCategoryRelationList { get; set; }
+        public virtual ICollection<Category>? categoryRelationList { get; set; }
+        public virtual ICollection<BookCategory>? BookCategoryRelationList { get; set; }
 
         [NotMapped]
-        public List<int>? categories { get; set; }
+        public List<int>? Categories { get; set; }
 
         [NotMapped]
-        public string CategoriesName { get; set; }
+        public string? CategoriesName { get; set; }
+
+        [NotMapped]
+        public IFormFile? File { get; set; }
+        [NotMapped]
+        public IEnumerable<SelectListItem>? CategoriesList { get; set; }
+        [NotMapped]
+        public MultiSelectList? MulticategoriesList { get; set; }
     }
 }

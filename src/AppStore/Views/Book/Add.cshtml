@@ -1,0 +1,73 @@
+@model AppStore.Models.Domain.Book;
+
+@{
+}
+
+<form asp-action="Add" method="post" class="w-40" enctype="multipart/form-data">
+
+    <h2>Agregar Libro</h2>
+    <div class="input-container">
+        <label asp-for="Title" class="w-40">Titulo</label>
+        <input type="text" asp-for="Title" class="input" />
+    </div>
+
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="Title"></span>
+    </div>
+
+    <div class="input-container">
+        <label asp-for="Author" class="w-40">Autor</label>
+        <input type="text" asp-for="Author" class="input" />
+    </div>
+
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="Author"></span>
+    </div>
+
+    <div class="input-container">
+        <label asp-for="Title" class="w-40">Titulo</label>
+        <input type="text" asp-for="Title" class="input" />
+    </div>
+
+    <div class="input-container">
+        <label asp-for="File" class="w-40">Archivo de imagen</label>
+        <input type="file" asp-for="File" class="input" />
+    </div>
+
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="File"></span>
+    </div>
+
+    <div class="input-container">
+        <label asp-for="Categories" class="w-40">Categorias</label>
+        <select asp-items="Model.CategoriesList" class="input" asp-for="Categories" multiple>
+            <option value="">-- Seleccionar --</option>
+
+        </select>
+    </div>
+
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="Categories"></span>
+    </div>
+
+    <div class="input-container">
+        <label asp-for="CreateDate" class="w-40">Fecha Publicacion</label>
+        <input type="text" asp-for="CreateDate" class="input" />
+    </div>
+
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="CreateDate"></span>
+    </div>
+
+    @if (TempData["msg"] != null)
+    {
+        <div class="alert-mb1">
+            @TempData["msg"]
+        </div>
+    }
+    <div class="input-container">
+        <button type="submit" class="btn btn-default">Agregar Libro</button>
+        <a class="btn btn-sec" href="/Book/BookList"> Ver todo</a>
+    </div>
+
+</form>
