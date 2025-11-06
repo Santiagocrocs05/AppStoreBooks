@@ -13,7 +13,7 @@
 
     @foreach (var book in Model.BookList!)
     {
-        <div class="movie-card" onclick="window.location.href='/movie-detail.html'">
+        <div class="movie-card" onclick="window.location.href='/Home/BookDetail?bookid=@book.Id'">
             <div class="movie-image">
                 <img src="/uploads/@book.Imagen" alt="Movie Image" width="200" height="300">
             </div>

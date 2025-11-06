@@ -15,5 +15,16 @@ namespace AppStore.Controllers
             var books = _bookService.List(term, true, currentPage);
             return View(books);
         }
+
+        public IActionResult BookDetail(int bookid)
+        {
+            var book = _bookService.GetBookById(bookid);
+            return View(book);
+        }
+
+        public IActionResult About()
+        {
+            return View();
+        }
     }
 }
