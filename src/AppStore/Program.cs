@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IBookService, BookService>();
+builder.Services.AddScoped<IUserAuthenticationService, UserAuthenticationService>();
 
 builder.Services.AddDbContext<DatabaseContext>(opt =>
 {

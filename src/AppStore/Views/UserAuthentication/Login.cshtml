@@ -1,0 +1,38 @@
+@model AppStore.Models.DTOs.LoginModel
+
+@{
+
+}
+
+<form class="w-40" asp-action="Login" method="post">
+    <h2 class="pb-10">Login</h2>
+    <div class="input-container">
+        <label asp-for="Username" class="w-40">Username</label>
+        <input type="text" asp-for="Username" class="input" />
+    </div>
+
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="Username"></span>
+    </div>
+
+
+    <div class="input-container">
+        <label asp-for="Password" class="w-40">Password</label>
+        <input type="password" asp-for="Password" class="input" />
+    </div>
+
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="Password"></span>
+    </div>
+
+    @if (TempData["Msg"] != null)
+    {
+        <div class="alert mb-1">
+            <span>@TempData["Msg"]</span>
+        </div>
+    }
+
+    <div class="input-container">
+        <button type="submit" class="btn btn-default">Login</button>
+    </div>
+</form>
