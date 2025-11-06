@@ -64,16 +64,56 @@ public class BookController : Controller
 
     public IActionResult Edit(int id)
     {
-        return View();
+        var book = _bookservice.GetBookById(id);
+        var categoriesbook = _bookservice.GetCategoryByBookId(id);
+        var MultiselectList = new MultiSelectList(_categoryService.List(), "Id", "Name", categoriesbook);
+        book.MulticategoriesList = MultiselectList;
+        return View(book);
     }
 
+    [HttpPost]
+    public IActionResult Edit(Book book)
+    {
+        var categoriesbook = _bookservice.GetCategoryByBookId(book.Id);
+        var MultiselectList = new MultiSelectList(_categoryService.List(), "Id", "Name", categoriesbook);
+        book.MulticategoriesList = MultiselectList;
+
+        if (!ModelState.IsValid)
+        {
+            return View(book);
+        }
+        if (book.File != null)
+        {
+            var fileresult = _fileservice.SaveFile(book.File);
+            if (fileresult.Item1 == 0)
+            {
+                TempData["msg"] = "la imagen no fue guardada";
+                return View(book);
+            }
+
+            var filename = fileresult.Item2;
+            book.Imagen = filename;
+        }
+
+        var resultadobook = _bookservice.Update(book);
+        if (!resultadobook)
+        {
+            TempData["msg"] = "no se puedo actualizar el libro";
+            return View(book);
+        }
+
+        TempData["msf"] = "se actualizo el libro";
+        return View(book);
+    }
     public IActionResult BookList()
     {
-        return View();
+        var books = _bookservice.List();
+        return View(books);
     }
 
     public IActionResult Delete(int id)
     {
+        var delete = _bookservice.Delete(id);
         return RedirectToAction(nameof(BookList));
     }
 }
