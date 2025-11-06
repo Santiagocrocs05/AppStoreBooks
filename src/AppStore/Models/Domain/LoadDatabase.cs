@@ -41,9 +41,9 @@ namespace AppStore.Models.Domain
             if (!context.Books.Any())
             {
                 await context.Books.AddRangeAsync(
-                    new Book { Title = "100 años de soledad", Author = "Gabriel García Márquez", CreateDate = DateTime.Now, Imagen = "https://example.com/100anos.jpg" },
-                    new Book { Title = "1984", Author = "George Orwell", CreateDate = DateTime.Now, Imagen = "https://example.com/1984.jpg" },
-                    new Book { Title = "Harry Potter", Author = "J.K. Rowling", CreateDate = DateTime.Now, Imagen = "https://example.com/harrypotter.jpg" }
+                    new Book { Title = "100 años de soledad", Author = "Gabriel García Márquez", CreateDate = DateTime.Now, Imagen = "cien.jpg" },
+                    new Book { Title = "1984", Author = "George Orwell", CreateDate = DateTime.Now, Imagen = "1984.jpg" },
+                    new Book { Title = "Harry Potter", Author = "J.K. Rowling", CreateDate = DateTime.Now, Imagen = "harrypotter.jpg" }
 
                 );
 

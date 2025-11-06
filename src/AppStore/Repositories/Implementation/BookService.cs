@@ -75,7 +75,7 @@ public class BookService : IBookService
         return _databasecontext.BookCategories.Where(a => a.BookId == bookid).Select(a => a.CategoryId).ToList();
     }
 
-    public BookListvm Listvm(string term = "", bool paging = false, int currentpage = 0)
+    public BookListvm List(string term = "", bool paging = false, int currentpage = 0)
     {
         var data = new BookListvm();
 

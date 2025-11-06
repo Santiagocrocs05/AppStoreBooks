@@ -1,12 +1,19 @@
+using AppStore.Repositories.Abstract;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AppStore.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly IBookService _bookService;
+        public HomeController(IBookService bookService)
         {
-            return View();
+            _bookService = bookService;
+        }
+        public IActionResult Index(string term = "", int currentPage = 1)
+        {
+            var books = _bookService.List(term, true, currentPage);
+            return View(books);
         }
     }
 }

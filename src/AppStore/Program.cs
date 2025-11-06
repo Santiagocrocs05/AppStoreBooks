@@ -1,10 +1,13 @@
 using AppStore.Models.Domain;
+using AppStore.Repositories.Abstract;
+using AppStore.Repositories.Implementation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IBookService, BookService>();
 
 builder.Services.AddDbContext<DatabaseContext>(opt =>
 {

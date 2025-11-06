@@ -14,7 +14,7 @@ public interface IBookService
 
     bool Delete(int id);
 
-    BookListvm Listvm(string term = "", bool paging = false, int currentpage = 0);
+    BookListvm List(string term = "", bool paging = false, int currentpage = 0);
 
     List<int> GetCategoryByBookId(int bookid);
 }
